@@ -1,0 +1,16 @@
+- !!nl.brianvermeer.workshop.coffee.export.ExportOrder
+  id: 30
+  orderDate: 2023-06-02T22:00:00Z
+  orderLines:
+  - id: 31
+    price: 3.55
+    productName: Wake-up Cake
+    quantity: 1
+  - id: 32
+    price: 2.1
+    productName: Good-morning Solstice
+    quantity: 3
+  - id: 33
+    price: 2.03
+    productName: Chocolate Volcano
+    quantity: 2

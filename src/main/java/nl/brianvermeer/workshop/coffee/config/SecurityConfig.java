@@ -24,6 +24,7 @@ public class SecurityConfig {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/", "/webjars/**", "/css/**", "/home", "/index", "/register", "/products/direct/**","/image/**").permitAll()
                 .antMatchers("/orders/add", "/orders/myorders/**", "/uploadimage").hasAnyRole("ADMIN", "CUSTOMER")

