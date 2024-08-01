@@ -2,7 +2,6 @@ package nl.brianvermeer.workshop.coffee.api;
 
 import nl.brianvermeer.workshop.coffee.domain.Person;
 import nl.brianvermeer.workshop.coffee.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class ApiController {
 
-    @Autowired
-    PersonService personService;
+    final PersonService personService;
+
+    public ApiController(PersonService personService) {
+        this.personService = personService;
+    }
 
     @GetMapping("/person")
     public List<Person> getAllPersons() {

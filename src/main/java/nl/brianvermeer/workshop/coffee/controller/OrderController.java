@@ -10,7 +10,6 @@ import nl.brianvermeer.workshop.coffee.export.YamlImportExport;
 import nl.brianvermeer.workshop.coffee.service.OrderService;
 import nl.brianvermeer.workshop.coffee.service.PersonService;
 import nl.brianvermeer.workshop.coffee.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +27,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.Principal;
 import java.util.Date;
@@ -37,11 +35,15 @@ import java.util.List;
 @Controller
 @RequestMapping("/orders")
 public class OrderController {
-    @Autowired private ProductService productService;
-    @Autowired private OrderService orderService;
-    @Autowired private PersonService personService;
+    private final ProductService productService;
+    private final OrderService orderService;
+    private final PersonService personService;
 
-
+    public OrderController(ProductService productService, OrderService orderService, PersonService personService) {
+        this.productService = productService;
+        this.orderService = orderService;
+        this.personService = personService;
+    }
 
 
     @ModelAttribute("products")

@@ -5,10 +5,8 @@ import nl.brianvermeer.workshop.coffee.domain.Role;
 import nl.brianvermeer.workshop.coffee.exception.EmailTakenException;
 import nl.brianvermeer.workshop.coffee.exception.UsernameTakenException;
 import nl.brianvermeer.workshop.coffee.repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import java.security.GeneralSecurityException;
 import java.util.List;
@@ -16,12 +14,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class PersonService {
-    @Autowired
-    private PersonRepository personRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private EncryptionServiceDes encryptionService;
+    private final PersonRepository personRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final EncryptionServiceDes encryptionService;
+
+    public PersonService(PersonRepository personRepository, PasswordEncoder passwordEncoder, EncryptionServiceDes encryptionService) {
+        this.personRepository = personRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.encryptionService = encryptionService;
+    }
 
 
     public List<Person> getAllPersons() {

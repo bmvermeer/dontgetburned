@@ -2,7 +2,6 @@ package nl.brianvermeer.workshop.coffee.formatter;
 
 import nl.brianvermeer.workshop.coffee.domain.Product;
 import nl.brianvermeer.workshop.coffee.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +12,9 @@ import java.util.Locale;
 public class ProductFormatter implements Formatter<Product> {
     private final ProductRepository productRepository;
 
-    @Autowired
     public ProductFormatter(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
 
     @Override
     public Product parse(String text, Locale locale) throws ParseException {

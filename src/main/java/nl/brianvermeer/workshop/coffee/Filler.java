@@ -10,10 +10,8 @@ import nl.brianvermeer.workshop.coffee.domain.Role;
 import nl.brianvermeer.workshop.coffee.service.OrderService;
 import nl.brianvermeer.workshop.coffee.service.PersonService;
 import nl.brianvermeer.workshop.coffee.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.ConstraintViolationException;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -24,15 +22,15 @@ public class Filler {
 
     private Faker faker = new Faker();
 
-    @Autowired
-    private PersonService personService;
+    private final PersonService personService;
+    private final ProductService productService;
+    private final OrderService orderService;
 
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private OrderService orderService;
-
+    public Filler(PersonService personService, ProductService productService, OrderService orderService) {
+        this.personService = personService;
+        this.productService = productService;
+        this.orderService = orderService;
+    }
 
 
     public void createAdmin(String username, String pwd) {

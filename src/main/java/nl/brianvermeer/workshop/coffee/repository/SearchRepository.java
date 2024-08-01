@@ -1,7 +1,6 @@
 package nl.brianvermeer.workshop.coffee.repository;
 
 import nl.brianvermeer.workshop.coffee.domain.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,11 +11,13 @@ import java.util.Locale;
 @Repository
 public class SearchRepository {
 
-    @Autowired
-    EntityManager em;
+    final EntityManager em;
+    final DataSource dataSource;
 
-    @Autowired
-    DataSource dataSource;
+    public SearchRepository(EntityManager em, DataSource dataSource) {
+        this.em = em;
+        this.dataSource = dataSource;
+    }
 
     public List<Product> searchProduct (String input) {
         var lowerInput = input.toLowerCase(Locale.ROOT);

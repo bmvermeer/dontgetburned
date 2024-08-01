@@ -2,7 +2,6 @@ package nl.brianvermeer.workshop.coffee.controller;
 
 import nl.brianvermeer.workshop.coffee.repository.SearchRepository;
 import nl.brianvermeer.workshop.coffee.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,6 @@ public class HomeController {
     private ProductService productService;
     private SearchRepository searchRepository;
 
-    @Autowired
     public HomeController(ProductService productService, SearchRepository searchRepository) {
         this.productService = productService;
         this.searchRepository = searchRepository;

@@ -2,7 +2,6 @@ package nl.brianvermeer.workshop.coffee.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AuthenticationFailureBadCredentialsEvent;
 import org.springframework.stereotype.Component;
@@ -14,11 +13,14 @@ public class AuthenticationFailureListener implements ApplicationListener<Authen
 
     private static final Logger logger = LogManager.getLogger(AuthenticationFailureListener.class);
 
-    @Autowired
-    private HttpServletRequest request;
+    private final HttpServletRequest request;
+
+    public AuthenticationFailureListener(HttpServletRequest request) {
+        this.request = request;
+    }
 
     @Override
     public void onApplicationEvent(AuthenticationFailureBadCredentialsEvent e) {
-        logger.error("Failed login for username: " + e.getAuthentication().getName());
+        logger.error("Failed login for username: {}", e.getAuthentication().getName());
     }
 }
