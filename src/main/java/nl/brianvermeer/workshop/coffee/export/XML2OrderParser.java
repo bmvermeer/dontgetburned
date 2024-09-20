@@ -21,6 +21,10 @@ public class XML2OrderParser {
     public List<ExportOrder> parse(InputStream f) throws ParserConfigurationException, SAXException, IOException {
         SAXParser saxParser = factory.newSAXParser();
         OrderHandler handler = new OrderHandler();
+        saxParser.getXMLReader().setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        saxParser.getXMLReader().setFeature("http://xml.org/sax/features/external-general-entities", false);
+
+
         saxParser.parse(f, handler);
         return handler.orders;
     }

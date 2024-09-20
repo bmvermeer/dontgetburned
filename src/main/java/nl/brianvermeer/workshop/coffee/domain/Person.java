@@ -1,5 +1,7 @@
 package nl.brianvermeer.workshop.coffee.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +25,7 @@ public class Person {
 
     @Transient
     private String passwordConfirm;
-
+    @JsonIgnore
     private String encryptedPassword;
 
     private String phone;
