@@ -18,6 +18,7 @@ public class CoffeeShopApplication {
         return (args) -> {
             filler.createAdmin("Admin", "admin");
             filler.createCustomer("User", "user");
+            filler.createCustomer("brian", "brian");
             filler.createPeople(6);
             filler.createCoffees(10);
             filler.createBeers(8);
